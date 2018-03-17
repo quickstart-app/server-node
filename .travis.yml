@@ -1,0 +1,23 @@
+sudo: required
+
+language: node_js
+
+node_js:
+- '8'
+
+services:
+- 'docker'
+
+before_install:
+- docker build -t rafaelnds/unity-cloudsave .
+
+install:
+- npm install
+
+cache:
+  directories:
+  - node_modules
+
+script:
+- eslint *.js --debug
+- npm run build

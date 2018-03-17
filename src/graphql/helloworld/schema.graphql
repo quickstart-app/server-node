@@ -1,0 +1,7 @@
+type Message {
+    message: String
+}
+
+type Query {
+    Hello(name: String = "World"): Message
+}

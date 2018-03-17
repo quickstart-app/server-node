@@ -1,0 +1,55 @@
+{
+  "name": "kit",
+  "version": "1.0.0",
+  "description": "Starting point for GraphQL Server.",
+  "main": "server.js",
+  "dependencies": {
+    "atob": "^2.0.3",
+    "babel-runtime": "^6.26.0",
+    "body-parser": "^1.18.2",
+    "btoa": "^1.1.2",
+    "cachegoose": "^5.0.0",
+    "context-middleware": "^1.0.0",
+    "cors": "^2.8.4",
+    "express": "^4.16.2",
+    "express-interceptor": "^1.2.0",
+    "fbgraph": "^1.4.1",
+    "graphql": "^0.11.7",
+    "graphql-server-express": "^1.2.0",
+    "graphql-tools": "^1.2.3",
+    "mongoose": "^5.0.3",
+    "node-fetch": "^2.1.1",
+    "schemaglue": "^2.0.1",
+    "throng": "^4.0.0"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-eslint": "^8.0.2",
+    "babel-plugin-root-import": "^5.1.0",
+    "babel-plugin-transform-runtime": "^6.23.0",
+    "babel-preset-env": "^1.6.1",
+    "dotenv": "^4.0.0",
+    "eslint": "^4.11.0",
+    "eslint-config-standard": "^10.2.1",
+    "eslint-plugin-import": "^2.8.0",
+    "eslint-plugin-node": "^5.2.1",
+    "eslint-plugin-promise": "^3.6.0",
+    "eslint-plugin-standard": "^3.0.1",
+    "rimraf": "^2.6.2"
+  },
+  "scripts": {
+    "dev": "babel-node src/dev.js --exec \"eslint --ext .js .\"",
+    "start": "node src/index.js",
+    "prebuild": "rimraf build/",
+    "build": "babel . --ignore node_modules,dev.js,yarn -d build",
+    "heroku-prebuild": "npm install --only=dev && npm install && npm run build",
+    "heroku-postbuild": "npm prune --production && find src/ -maxdepth 6 -name \"*.js\" -type f -delete && cp -rfv build/src/ ./"
+  },
+  "author": "Rafael Santos",
+  "license": "MIT",
+  "repository": "https://github.com/rafaelnsantos/unity-cloudsave",
+  "engines": {
+    "node": "8.9.4",
+    "npm": "5.6.0"
+  }
+}

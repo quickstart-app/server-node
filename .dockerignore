@@ -1,0 +1,15 @@
+node_modules
+.idea
+.vscode
+.env
+.env.example
+.eslintignore
+.eslintrc.js
+.gitignore
+.travis.yml
+docker-compose.yml
+Dockerfile
+env.list
+LICENCE
+Procfile
+README.md
